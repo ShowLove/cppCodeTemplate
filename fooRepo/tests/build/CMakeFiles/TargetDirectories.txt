@@ -1,0 +1,5 @@
+/Users/carlosgarzon/Desktop/code/cpp/codeQs/tests/build/CMakeFiles/rebuild_cache.dir
+/Users/carlosgarzon/Desktop/code/cpp/codeQs/tests/build/CMakeFiles/edit_cache.dir
+/Users/carlosgarzon/Desktop/code/cpp/codeQs/tests/build/tests/CMakeFiles/rebuild_cache.dir
+/Users/carlosgarzon/Desktop/code/cpp/codeQs/tests/build/tests/CMakeFiles/edit_cache.dir
+/Users/carlosgarzon/Desktop/code/cpp/codeQs/tests/build/tests/CMakeFiles/gtestProject.dir
