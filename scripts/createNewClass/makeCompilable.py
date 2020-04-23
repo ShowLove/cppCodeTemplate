@@ -3,11 +3,12 @@ import copyFiles
 class makeCompilable(object):
 
   def __init__(self, className):
-    self.printDebug  = False
+    self.printDebug  = True
     self.cf = copyFiles.copyFiles(className) #import.class
     self.className =  self.cf.getClassName()
     self.nameSpace  = self.cf.getNameSpace()
     self.topLevelDir = self.cf.getTopLevelDir()
+    self.pathToTestDir = self.cf.getTestDir()
     self.headerFile, self.SrcFile, self.TestFile = self.cf.getDstDirs()
     self.origClassName = "Foo"
     self.origNameSpace = "fooNameSpace"
@@ -46,7 +47,7 @@ class makeCompilable(object):
     self.replaceStrInFile(self.TestFile, self.origNameSpace, self.nameSpace)
 
   def updateCmake(self, srcName):
-    cmakeFile = self.topLevelDir + "/codeQs/tests/CMakeLists.txt"
+    cmakeFile = self.pathToTestDir + "CMakeLists.txt"
     if self.printDebug : print("TopLevelDir: " + cmakeFile)
 
     #if we already updated cmake with this class don't do it again

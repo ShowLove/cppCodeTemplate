@@ -15,26 +15,11 @@ include_directories("/usr/local/Cellar/gtest/lib")
 
 set(SOURCES
   gtestsMain.cpp
-  ../utils.cpp
-  ../StrHasUniqueChars.cpp
-  ../ReverseStr.cpp
-  ../StrIsPermutation.cpp
-  ../ReplaceSubString.cpp
   #nextSource
-  utilsTest.cpp
-  StrHasUniqueCharsTest.cpp
-  ReverseStrTest.cpp
-  StrIsPermutationTest.cpp
-  ReplaceSubStringTest.cpp
   #nextTest
 )
 
 set(HEADERS
-  ../utils.h
-  ../StrHasUniqueChars.h
-  ../ReverseStr.h
-  ../StrIsPermutation.h
-  ../ReplaceSubString.h
   #nextHeader
 )
 

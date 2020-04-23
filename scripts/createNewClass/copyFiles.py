@@ -14,10 +14,17 @@ import os     # to change directories using os
 
 class copyFiles(object):
 
-  def __init__(self, newClassName):
+  def __init__(self, newClassName, repositoryName="na"):
     self.printDebug  = False
-    self.fooVar = 2
-    self.repoName   = "codeQs"                        # change with new repo
+    # set the repo you want to add code to, if none give as param use default
+    self.defaultRepoName = "fooRepo"
+    if repositoryName == "na":
+      self.repoName = self.defaultRepoName
+    else:
+      self.repoName = self.repositoryName
+    if self.printDebug : print("using repo:" + "\t\t" + self.repoName)
+
+    self.fooVar = 2    
     self.nameSpace  = self.repoName
     self.headerFile = "Foo.h"
     self.srcFile    = "Foo.cpp"
@@ -26,13 +33,16 @@ class copyFiles(object):
     self.className  = newClassName                    # change with new class
     self.pathToTopLevlDir = "../../"
     self.pathToScriptDir  = "/scripts/createNewClass/"
-    self.pathToRepoDir    = "/codeQs/"                # change with new repo
-    self.pathToTestDir    = "/codeQs/tests/"          # change with new repo
-    self.pathToGenericCodeDir = "/syntax/codeTemplate/"
+    self.pathToRepoDir    = "/" +self.repoName +"/"         # changes with new repo
+    self.pathToTestDir    = "/" +self.repoName+ "/tests/"   # changes with new repo
+    self.pathToGenericCodeDir = "/codeTemplate/"     
     self.topLevelDir = self.getTopLevelDir()
 
   def getFullPathName(self, dirPath):
     return self.topLevelDir + dirPath
+
+  def getTestDir(self):
+    return self.pathToTestDir
 
   def getSriptDir(self):
     # get script directory
@@ -71,9 +81,9 @@ class copyFiles(object):
   def getSourceDirs(self):
     # Get all relevant directories (path + fileName)
     sourceDir = self.getGenericCodeDir()
-    sourceHeader = sourceDir + "/" + self.headerFile
-    sourceSrc    = sourceDir + "/" + self.srcFile
-    sourceTest   = sourceDir + "/" + self.testFile
+    sourceHeader = sourceDir + self.headerFile
+    sourceSrc    = sourceDir + self.srcFile
+    sourceTest   = sourceDir + self.testFile
     #return the directories that will be used by shutil
     return sourceHeader, sourceSrc, sourceTest  
 
@@ -81,9 +91,9 @@ class copyFiles(object):
     # Get all relevant directories (path + fileName)
     dstDir   = self.getRepoDir()
     testDir  = self.getTestDir()
-    dstHeader    = dstDir  + "/" + self.className + ".h"
-    dstSrc       = dstDir  + "/" + self.className + ".cpp"
-    dstTest      = testDir + "/" + self.className + "Test.cpp"
+    dstHeader    = dstDir  + self.className + ".h"
+    dstSrc       = dstDir  + self.className + ".cpp"
+    dstTest      = testDir + self.className + "Test.cpp"
     #return the directories that will be used by shutil
     return dstHeader, dstSrc, dstTest
 
