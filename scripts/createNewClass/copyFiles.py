@@ -3,7 +3,11 @@ import os     # to change directories using os
 
 # TODO
 # 1 should be only one getDir function
-# 2 add conditional parameters (className, namespace)
+# 2 update other classes that use this to use conditional parameters
+#   a. currently we have to update defaultRepoName
+# 3. Add a class that writes a build script
+# 4. Add a class that deletes a directory
+# 5. Add a class that adds a new directory with infrastructure
 
 ##########################################
 # assuming the following folder structure
@@ -17,7 +21,7 @@ class copyFiles(object):
   def __init__(self, newClassName, repositoryName="na"):
     self.printDebug  = False
     # set the repo you want to add code to, if none give as param use default
-    self.defaultRepoName = "fooRepo"
+    self.defaultRepoName = "fooRepo"                  # changes when you are working on a different repo
     if repositoryName == "na":
       self.repoName = self.defaultRepoName
     else:
